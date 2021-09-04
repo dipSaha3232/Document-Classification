@@ -6,17 +6,19 @@ import java.util.Random;
 
 public class KmeansCluster {
 	
-	private int noOfCluster, vectorDimension;
+	private int noOfCluster=3, vectorDimension;
 	private float [][] points;
 	
 	private float [][] newClusterMiddlePoints, previousClusterMiddlePoints, sumInsideIndividualCluster;
 
 	int [] count;
+	int [] documentCluster;
 	
 	public KmeansCluster(int noOfCluster, float[][] vectors) {
 		this.noOfCluster = noOfCluster;
 		this.points = vectors;
 		this.vectorDimension = this.points[0].length;
+		this.documentCluster = new int[this.points.length];
 	}
 	
 	private void initSum() {
@@ -54,7 +56,7 @@ public class KmeansCluster {
 		
 		for(int i=0;i<this.noOfCluster;i++) {
 			int r = rands.get(i);
-			System.out.println(r);
+			System.out.println("rand "+Integer.toString(r));
 			this.newClusterMiddlePoints[i]=this.points[r];
 		}
 	}
@@ -84,7 +86,7 @@ public class KmeansCluster {
 		return nearestIndex;
 	}
 	
-	public void clustering() {
+	public int[] clustering() {
 		initializeArraylist();
 		initializeClusterMiddlePoints();
 		
@@ -119,8 +121,10 @@ public class KmeansCluster {
 			
 			if(flag) break;
 		}
-		for(float [] point : this.points) {
-			System.out.println("cluster : "+Integer.toString(getNearestClusterIndex(point)));
+		for(int i=0;i<points.length;i++) {
+			documentCluster[i] = getNearestClusterIndex(points[i]);
 		}
+		
+		return this.documentCluster;
 	}
 }

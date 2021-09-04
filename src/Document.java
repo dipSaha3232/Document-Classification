@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Document {
 	
-	private String content;
+	private String content=" ";
 	private String[] words;
 	
 	public Document(String content)
