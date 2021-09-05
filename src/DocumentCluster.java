@@ -3,6 +3,7 @@ public class DocumentCluster {
 	Facade facade = new Facade();
 	float [][] vectors;
 	int [] documentCluster,bestDocumentCluster;
+	double minVarience;
 	
 	private int noOfCluster=3;
 	
@@ -24,9 +25,9 @@ public class DocumentCluster {
 		KmeansCluster kmeansCluster = new KmeansCluster(noOfCluster, vectors);
 		VarienceTest varienceTest;
 		
-		double minVarience = 1000000000;
+		minVarience = 1000000000;
 		
-		for(int i=0;i<1;i++) {
+		for(int i=0;i<3;i++) {
 			documentCluster=kmeansCluster.clustering();
 			varienceTest=new VarienceTest(noOfCluster,documentCluster);
 			if(varienceTest.getVarience()<minVarience) {
@@ -34,8 +35,11 @@ public class DocumentCluster {
 				bestDocumentCluster = documentCluster;
 			}
 		}
-		
 		return bestDocumentCluster;
+	}
+	
+	public double getVarience() {
+		return this.minVarience;
 	}
 
 }

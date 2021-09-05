@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
@@ -31,6 +32,9 @@ public class MainController {
 	@FXML
 	private Spinner<Integer> spinner;
 	
+	@FXML
+	private Label variance;
+	
 	private ArrayList<TextArea> textAreas = new ArrayList<>();
 	
 	int index=0;
@@ -38,10 +42,10 @@ public class MainController {
 	private TextArea createNewArea() {
 		TextArea textArea = new TextArea();
 		textArea.setPromptText("Write your text here");
-		textArea.setPrefHeight(100);
+		textArea.setPrefHeight(40);
 		textArea.setPrefWidth(textAreaAnchor.getWidth());
 		textArea.setLayoutX(0);
-		textArea.setLayoutY(index*100 + 20);
+		textArea.setLayoutY(index*50 + 20);
 		textArea.setId("ta"+Integer.toString(index));
 		textAreas.add(textArea);
 		index++;
@@ -71,6 +75,9 @@ public class MainController {
 		createStyleForCluster();
 		
 		setColorToTextArea();
+		
+		variance.setText("Variance : "+Double.toString(documentCluster.getVarience()));
+		variance.setStyle("-fx-text-fill : red");
 		
 	}
 	

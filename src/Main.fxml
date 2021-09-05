@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
    <children>
       <ScrollPane fx:id="scroller" prefHeight="370.0" prefWidth="600.0">
          <content>
@@ -36,5 +36,6 @@
       </Button>
       <Label layoutX="310.0" layoutY="382.0" prefHeight="35.0" prefWidth="111.0" text="Number of clusters :" />
       <Spinner fx:id="spinner" initialValue="3" layoutX="421.0" layoutY="386.0" max="20" min="1" prefHeight="28.0" prefWidth="52.0" />
+      <Label fx:id="variance" layoutX="211.0" layoutY="431.0" prefHeight="28.0" prefWidth="155.0" />
    </children>
 </AnchorPane>
