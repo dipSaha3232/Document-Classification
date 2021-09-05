@@ -56,7 +56,6 @@ public class KmeansCluster {
 		
 		for(int i=0;i<this.noOfCluster;i++) {
 			int r = rands.get(i);
-			System.out.println("rand "+Integer.toString(r));
 			this.newClusterMiddlePoints[i]=this.points[r];
 		}
 	}

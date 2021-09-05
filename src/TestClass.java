@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -12,9 +13,28 @@ import javafx.stage.Stage;
 
 public class TestClass extends Application{
 	
+	@FXML
+	AnchorPane anchorpane;
+	
+	Spinner<Integer>createSpinner(){
+		
+		Spinner<Integer> spinner = new Spinner<Integer>();
+		final int initialValue = 3;	
+		SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,5,initialValue);
+		spinner.setValueFactory(valueFactory);
+		spinner.setPrefHeight(25);
+		spinner.setPrefWidth(50);
+		spinner.setLayoutX(421);
+		spinner.setLayoutY(387);
+		return spinner;
+		
+	}
+	
+	
 	public void start(Stage primaryStage) throws Exception
 	{
 		Parent root=FXMLLoader.load(getClass().getResource("Main.fxml"));
+		//anchorpane.getChildren().add(createSpinner());
 		Scene scene=new Scene(root);
 		primaryStage.setTitle("Document Classification");
 		primaryStage.setScene(scene);
